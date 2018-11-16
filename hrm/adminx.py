@@ -20,7 +20,7 @@ xadmin.site.register(Department,DepartmentAdmin)
 
 
 class StaffAdmin(object):
-    list_display = ('name','add_time')
+    list_display = ('name','department','gradSchool','tel','add_time')
 
     def get_readonly_fields(self):
         """  重新定义此函数，限制普通用户所能修改的字段  """

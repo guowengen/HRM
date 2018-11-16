@@ -93,9 +93,9 @@ class Salary(models.Model):
             return 0
     def real_wages(self):
         if self.salary >= 5000:
-            return (self.salary - round(self.salary * 0.08, 2) - round(self.salary * 0.02, 2) - round(self.salary * 0.005, 2) - round(self.salary * 0.07, 2)  - ((self.salary - 5000) * 0.08) - delWages)
+            return (self.salary - round(self.salary * 0.08, 2) - round(self.salary * 0.02, 2) - round(self.salary * 0.005, 2) - round(self.salary * 0.07, 2)  - ((self.salary - 5000) * 0.08))
         else:
-            return (self.salary - round(self.salary * 0.08, 2) - round(self.salary * 0.02, 2) - round(self.salary * 0.005, 2) - round(self.salary * 0.07, 2) - delWages)
+            return (self.salary - round(self.salary * 0.08, 2) - round(self.salary * 0.02, 2) - round(self.salary * 0.005, 2) - round(self.salary * 0.07, 2))
 
     pension.short_description = '养老保险'
     medical.short_description = '医疗保险'

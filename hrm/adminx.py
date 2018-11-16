@@ -44,10 +44,26 @@ xadmin.site.register(Staff,StaffAdmin)
 class AttendanceAdmin(object):
     list_display = ('staff','user','lateCount','absenceCount','leaveCount','workOvertime')
 
+    def queryset(self):
+        qs = super(AttendanceAdmin, self).queryset()
+    
+        if self.request.user.is_superuser:
+            return qs
+        else: 
+            return qs.filter(user=self.request.user)
+
 xadmin.site.register(Attendance,AttendanceAdmin)
 
 class SalaryAdmin(object):
     list_display = ('staff','user','salary','date','pension', 'medical', 'unemployment', 'housing', 'tax','real_wages')
+    
+    def queryset(self):
+        qs = super(SalaryAdmin, self).queryset()
+    
+        if self.request.user.is_superuser:
+            return qs
+        else: 
+            return qs.filter(user=self.request.user)
 
 xadmin.site.register(Salary,SalaryAdmin)
 

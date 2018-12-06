@@ -1,0 +1,4 @@
+django==1.9
+xadmin==0.6.1
+Pillow==4.1.0
+MySQL-python==1.2.5
